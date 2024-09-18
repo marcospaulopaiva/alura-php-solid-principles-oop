@@ -1,6 +1,7 @@
 <?php
 
 namespace Alura\Solid\Model;
+
 use Alura\Solid\Interface\Pontuavel;
 
 class Curso implements Pontuavel
@@ -30,7 +31,6 @@ class Curso implements Pontuavel
         $this->videos[] = $video;
     }
 
-    /** @return Video[] */
     public function recuperarVideos(): array
     {
         return $this->videos;
@@ -40,4 +40,11 @@ class Curso implements Pontuavel
     {
         return 100;
     }
+
+    public function assistir(): void {
+        foreach($this->recuperarVideos() as $video){
+            $video->assistir();
+        }
+    }
+    
 }
